@@ -13,6 +13,8 @@ public class selectionSort {
                 }
             }
 
+
+
             swap(arr, i, minIndex);
         }
 
