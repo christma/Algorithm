@@ -28,7 +28,7 @@ public class selectionSort {
 
     public static void main(String[] args) {
 
-        Integer[] arr = SortTestHelper.generateRandomArray(100000,0,100);
+        Integer[] arr = SortTestHelper.generateRandomArray(100000,0,100000);
         selectionSort.sort(arr);
         SortTestHelper.testSort("SelectionSort.selectionSort",arr);
     }
