@@ -1,5 +1,6 @@
 package QuiteSort;
 
+import InsertionSort.InsertionSort;
 import SelectionSort.SortTestHelper;
 
 public class QuickSort {
@@ -15,7 +16,12 @@ public class QuickSort {
 
     private static void sort(Comparable[] arr, int l, int r) {
 
-        if (l >= r) {
+//        if (l >= r) {
+//            return;
+//        }
+
+        if (r - l < 15) {
+            InsertionSort.sort(arr,l,r);
             return;
         }
 
@@ -25,6 +31,10 @@ public class QuickSort {
     }
 
     private static int partition(Comparable[] arr, int l, int r) {
+
+        swap(arr, l, (int) (Math.random() * (r - l + 1)) + l);
+
+
         Comparable v = arr[l];
         int j = l;
         for (int i = l + 1; i <= r; i++) {
@@ -46,8 +56,8 @@ public class QuickSort {
 
     public static void main(String[] args) {
 
-        int N = 1000000;
-        Integer[] arr = SortTestHelper.generateRandomArray(N, 0, 100000);
+        int N = 100000;
+        Integer[] arr = SortTestHelper.generateRandomArray(N, 0, 10);
         SortTestHelper.testSort("QuiteSort.QuickSort", arr);
     }
 }
