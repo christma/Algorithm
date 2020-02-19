@@ -104,6 +104,8 @@ public class PrintableMaxHeap extends MaxHeap<Comparable<Integer>>{
         for( int i = 0 ; i < N ; i ++ )
             maxHeap.insert( new Integer((int)(Math.random() * M)) );
         maxHeap.treePrint();
+        maxHeap.extractMax();
+        maxHeap.treePrint();
 
     }
 }
