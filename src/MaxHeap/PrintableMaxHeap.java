@@ -98,6 +98,7 @@ public class PrintableMaxHeap extends MaxHeap<Comparable<Integer>>{
     // 测试 PrintableMaxHeap
     public static void main(String[] args) {
 
+
         PrintableMaxHeap maxHeap = new PrintableMaxHeap(100);
         int N = 31; // 堆中元素个数
         int M = 100; // 堆中元素取值范围[0, M)
