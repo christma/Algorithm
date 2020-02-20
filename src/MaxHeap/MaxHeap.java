@@ -12,6 +12,25 @@ public class MaxHeap<Item extends Comparable> {
         this.capacity = capacity;
     }
 
+    // 时间复杂度为 O(n)
+    public MaxHeap(Item arr[]) {
+        int n = arr.length;
+
+        data = (Item[]) new Comparable[n + 1];
+
+        capacity = n;
+
+        for (int i = 0; i < n; i++) {
+            data[i + 1] = arr[i];
+        }
+        count = n;
+        for (int i = count / 2; i >= 1; i--) {
+            shiftDown(i);
+        }
+
+
+    }
+
     public int size() {
         return count;
     }
@@ -38,15 +57,15 @@ public class MaxHeap<Item extends Comparable> {
     }
 
     private void shiftDown(int k) {
-        while (2*k <= count){
-            int j = 2*k;
-            if (j+1 < count && data[j+1].compareTo(data[j]) > 0) {
+        while (2 * k <= count) {
+            int j = 2 * k;
+            if (j + 1 < count && data[j + 1].compareTo(data[j]) > 0) {
                 j++;
             }
-            if(data[k].compareTo(data[j]) >= 0){
+            if (data[k].compareTo(data[j]) >= 0) {
                 break;
             }
-            swap(k,j);
+            swap(k, j);
             k = j;
         }
     }
