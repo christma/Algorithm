@@ -54,16 +54,27 @@ public class IndexMaxHeap<Item extends Comparable> {
         indexes[j] = t;
     }
 
-    public int extractMax() {
+    public Item extractMax(){
         assert count > 0;
-        int ret = indexes[1] - 1;
-        swapIndexes(1, count);
-        count--;
+
+        Item ret = data[indexes[1]];
+        swapIndexes( 1 , count );
+        count --;
         shiftDown(1);
 
         return ret;
+    }
 
+    // 从最大索引堆中取出堆顶元素的索引
+    public int extractMaxIndex(){
+        assert count > 0;
 
+        int ret = indexes[1] - 1;
+        swapIndexes( 1 , count );
+        count --;
+        shiftDown(1);
+
+        return ret;
     }
 
     private void shiftDown(int k) {
