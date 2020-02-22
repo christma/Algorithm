@@ -1,5 +1,7 @@
 package BST;
 
+import com.sun.xml.internal.ws.api.ha.StickyFeature;
+
 public class BST<Key extends Comparable<Key>, Value> {
 
     private class Node {
@@ -51,6 +53,24 @@ public class BST<Key extends Comparable<Key>, Value> {
         return node;
     }
 
+    public boolean contain(Key key) {
+        return contain(root, key);
+    }
+
+    private boolean contain(Node node, Key key) {
+
+        if (node == null) {
+            return false;
+        }
+
+        if (node.key.compareTo(key) == 0) {
+            return true;
+        } else if (node.key.compareTo(key) < 0) {
+            return contain(node.left, key);
+        } else {
+            return contain(node.right, key);
+        }
+    }
 
     public static void main(String[] args) {
 
