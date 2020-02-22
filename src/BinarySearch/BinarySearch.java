@@ -5,7 +5,7 @@ public class BinarySearch {
     private BinarySearch() {
     }
 
-    public static int find(Comparable[] arr, Comparable targe) {
+    public static int find(Comparable[] arr, Comparable target) {
         int l = 0, r = arr.length - 1;
 
         while (l <= r) {
@@ -14,16 +14,35 @@ public class BinarySearch {
             int mid = l + (r - l) / 2;
 
 
-            if (arr[mid] == targe) {
+            if (arr[mid] == target) {
                 return mid;
             }
-            if (arr[mid].compareTo(targe) < 0) {
+            if (arr[mid].compareTo(target) < 0) {
                 r = mid - 1;
             } else {
                 l = mid + 1;
             }
         }
         return -1;
+
+    }
+
+
+    public static int find2(Comparable[] arr, int l, int r, Comparable target) {
+
+        if (l > r) {
+            return -1;
+        }
+
+        int mid = l + (r - l) / 2;
+        if (arr[mid].compareTo(target) == 0) {
+            return mid;
+        } else if (arr[mid].compareTo(target) > 0) {
+            return find2(arr, l, mid - 1, target);
+        } else {
+            return find2(arr, mid + 1, r, target);
+        }
+
 
     }
 
