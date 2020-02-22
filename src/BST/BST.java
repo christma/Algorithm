@@ -72,6 +72,28 @@ public class BST<Key extends Comparable<Key>, Value> {
         }
     }
 
+    // 在二分搜索树中搜索键key所对应的值。如果这个值不存在, 则返回null
+    public Value search(Key key) {
+        return search(root, key);
+    }
+
+    private Value search(Node node, Key key) {
+
+        if (node == null) {
+            return null;
+        }
+        if (node.key.compareTo(key) == 0) {
+            return node.value;
+        } else if (node.key.compareTo(key) < 0) {
+            return search(node.left, key);
+        } else {
+            return search(node.right, key);
+        }
+
+
+    }
+
+
     public static void main(String[] args) {
 
     }
