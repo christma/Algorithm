@@ -2,6 +2,9 @@ package BST;
 
 import com.sun.xml.internal.ws.api.ha.StickyFeature;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BST<Key extends Comparable<Key>, Value> {
 
     private class Node {
@@ -127,6 +130,24 @@ public class BST<Key extends Comparable<Key>, Value> {
             postOrder(node.left);
             postOrder(node.right);
             System.out.println(node.key);
+        }
+    }
+
+
+    public void levelOrder() {
+
+        Queue<Node> q = new LinkedList<>();
+        ((LinkedList<Node>) q).add(root);
+        while (!q.isEmpty()) {
+            Node node = q.remove();
+            System.out.println(node.key);
+
+            if (node.left != null) {
+                q.add(node.left);
+            }
+            if (node.right != null) {
+                q.add(node.left);
+            }
         }
     }
 
