@@ -151,6 +151,32 @@ public class BST<Key extends Comparable<Key>, Value> {
         }
     }
 
+    public Key minimum() {
+        assert count != 0;
+        Node minNode = minimum(root);
+        return minNode.key;
+    }
+
+    private Node minimum(Node node) {
+        if (node.left == null) {
+            return node;
+        }
+        return minimum(node.left);
+
+    }
+
+    public Key maxmum() {
+        assert count != 0;
+        Node maxNode = maxMum(root);
+        return maxNode.key;
+    }
+
+    private BST.BST<Key, Value>.Node maxMum(BST.BST<Key, Value>.Node node) {
+        if (node.right == null) {
+            return node;
+        }
+        return maxMum(node.right);
+    }
 
     public static void main(String[] args) {
 
