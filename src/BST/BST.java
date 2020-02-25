@@ -18,6 +18,12 @@ public class BST<Key extends Comparable<Key>, Value> {
             right = left = null;
         }
 
+        public Node(Node node) {
+            this.key = node.key;
+            this.value = node.value;
+            this.left = node.left;
+            this.right = node.right;
+        }
     }
 
     private Node root;
@@ -215,6 +221,48 @@ public class BST<Key extends Comparable<Key>, Value> {
         return node;
     }
 
+
+    public void remove(Key key) {
+        root = remove(root, key);
+    }
+
+    private Node remove(Node node, Key key) {
+
+        if (node == null) {
+            return null;
+        }
+        if (key.compareTo(node.key) < 0) {
+            node.left = remove(node.left, key);
+        } else if (key.compareTo(node.key) > 0) {
+            node.right = remove(node.right, key);
+            return node;
+        } else {
+            if (node.left == null) {
+                Node rightNode = node.right;
+                node.right = null;
+                count--;
+                return rightNode;
+            }
+            if (node.right == null) {
+                Node leftNode = node.left;
+                node.left = null;
+                count--;
+                return leftNode;
+            }
+            Node successor = new Node(minimum(node.right));
+            count++;
+            successor.right = removeMin(node.right);
+            successor.left = node.left;
+
+            node.left = node.right = null;
+            count--;
+            return successor;
+
+        }
+
+
+        return null;
+    }
 
     public static void main(String[] args) {
 
