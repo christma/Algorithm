@@ -177,7 +177,7 @@ public class BST<Key extends Comparable<Key>, Value> {
         return maxNode.key;
     }
 
-    private BST.BST<Key, Value>.Node maxMum(BST.BST<Key, Value>.Node node) {
+    private Node maxMum(Node node) {
         if (node.right == null) {
             return node;
         }
@@ -191,7 +191,7 @@ public class BST<Key extends Comparable<Key>, Value> {
         }
     }
 
-    private BST.BST<Key, Value>.Node removeMin(Node node) {
+    private Node removeMin(Node node) {
         if (node.left == null) {
             Node rightNode = node.right;
             node.right = null;
@@ -209,7 +209,7 @@ public class BST<Key extends Comparable<Key>, Value> {
         }
     }
 
-    private BST.BST<Key, Value>.Node removeMax(Node node) {
+    private Node removeMax(Node node) {
         if (node.right == null) {
             Node leftNode = node.left;
             node.left = null;
