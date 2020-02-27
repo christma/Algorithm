@@ -249,6 +249,7 @@ public class BST<Key extends Comparable<Key>, Value> {
                 count--;
                 return leftNode;
             }
+
             Node successor = new Node(minimum(node.right));
             count++;
             successor.right = removeMin(node.right);
