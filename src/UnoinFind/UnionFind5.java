@@ -23,11 +23,16 @@ public class UnionFind5 {
         assert (p >= 0 && p < count);
         // 不断去查询自己的父亲节点, 直到到达根节点
         // 根节点的特点: parent[p] == p
+//        while (p != parent[p]) {
+//            parent[p] = parent[parent[p]];
+//            p = parent[p];
+//        }
+//        return p;
+
         while (p != parent[p]) {
-            parent[p] = parent[parent[p]];
-            p = parent[p];
+            parent[p] = find(parent[p]);
         }
-        return p;
+        return parent[p];
     }
 
     // 查看元素p和元素q是否所属一个集合
