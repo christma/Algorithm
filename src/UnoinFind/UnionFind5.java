@@ -37,7 +37,7 @@ public class UnionFind5 {
 
     // 查看元素p和元素q是否所属一个集合
     // O(h)复杂度, h为树的高度
-    public boolean isConnected(int p, int q) {
+    public boolean isConnected(int p, int q)  {
         return find(p) == find(q);
     }
 
