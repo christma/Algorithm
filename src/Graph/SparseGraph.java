@@ -51,7 +51,12 @@ public class SparseGraph {
         return false;
     }
 
-    public static void main(String[] args){
+    public Iterable<Integer> adj(int v) {
+        assert v >= 0 && v < n;
+        return g[v];
+    }
+
+    public static void main(String[] args) {
 
         SparseGraph graph = new SparseGraph(7, false);
         graph.addEdge(0, 1);
