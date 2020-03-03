@@ -1,5 +1,7 @@
 package Graph;
 
+import java.util.Vector;
+
 public class DenseGraph {
 
     private int n; //节点数
@@ -44,6 +46,18 @@ public class DenseGraph {
         assert w >= 0 && w < n;
 
         return g[v][w];
+    }
+
+
+    public Iterable<Integer> adj(int v) {
+        assert v >= 0 && v < n;
+        Vector<Integer> adjV = new Vector<>();
+        for (int i = 0; i < n; i++) {
+            if (g[v][i]) {
+                adjV.add(i);
+            }
+        }
+        return adjV;
     }
 
 
