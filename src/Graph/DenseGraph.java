@@ -2,7 +2,7 @@ package Graph;
 
 import java.util.Vector;
 
-public class DenseGraph {
+public class DenseGraph implements Graph {
 
     private int n; //节点数
     private int m; // 边数
@@ -41,11 +41,20 @@ public class DenseGraph {
         m++;
     }
 
-    private boolean hasEdge(int v, int w) {
+    public boolean hasEdge(int v, int w) {
         assert v >= 0 && v < n;
         assert w >= 0 && w < n;
 
         return g[v][w];
+    }
+
+    @Override
+    public void show() {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++)
+                System.out.print(g[i][j] + "\t");
+            System.out.println();
+        }
     }
 
 

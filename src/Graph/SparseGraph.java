@@ -2,7 +2,7 @@ package Graph;
 
 import java.util.Vector;
 
-public class SparseGraph {
+public class SparseGraph implements Graph {
 
     private int n; // 节点数
     private int m; // 边数
@@ -49,6 +49,16 @@ public class SparseGraph {
             }
         }
         return false;
+    }
+
+    @Override
+    public void show() {
+        for (int i = 0; i < n; i++) {
+            System.out.print("vertex " + i + ":\t");
+            for (int j = 0; j < g[i].size(); j++)
+                System.out.print(g[i].elementAt(j) + "\t");
+            System.out.println();
+        }
     }
 
     public Iterable<Integer> adj(int v) {
