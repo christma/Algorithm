@@ -16,11 +16,11 @@ public class Edge<Weight extends Number & Comparable> implements Comparable<Edge
         this.weight = e.weight;
     }
 
-    private int v() {
+    public int v() {
         return a;
     }
 
-    private int w() {
+    public int w() {
         return b;
     }
 
