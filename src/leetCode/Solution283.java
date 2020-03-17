@@ -50,6 +50,18 @@ public class Solution283 {
     }
 
 
+    public void moveZeroes3(int[] nums) {
+        int k = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
+                if(k != i)
+                    swap(nums, k++, i);
+                else
+                    k++;
+            }
+        }
+    }
+
     private void swap(int[] nums, int i, int j) {
         int t = nums[i];
         nums[i] = nums[j];
@@ -64,7 +76,7 @@ public class Solution283 {
 //        solution283.moveZeroes(arr);
 //        printArr(arr);
 
-        solution283.moveZeroes2(arr);
+        solution283.moveZeroes3(arr);
         printArr(arr);
     }
 }
