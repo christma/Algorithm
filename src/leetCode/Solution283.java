@@ -22,8 +22,8 @@ public class Solution283 {
 
     }
 
-    private static void printArr(int[] arr){
-        for(int i = 0 ; i < arr.length ; i ++)
+    private static void printArr(int[] arr) {
+        for (int i = 0; i < arr.length; i++)
             System.out.print(arr[i] + " ");
         System.out.println();
     }
@@ -40,6 +40,22 @@ public class Solution283 {
         }
     }
 
+    public void moveZeroes2(int[] nums) {
+        int k = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
+                swap(nums, k++, i);
+            }
+        }
+    }
+
+
+    private void swap(int[] nums, int i, int j) {
+        int t = nums[i];
+        nums[i] = nums[j];
+        nums[j] = t;
+    }
+
 
     public static void main(String[] args) {
 
@@ -48,7 +64,7 @@ public class Solution283 {
 //        solution283.moveZeroes(arr);
 //        printArr(arr);
 
-        solution283.moveZeroes1(arr);
+        solution283.moveZeroes2(arr);
         printArr(arr);
     }
 }
