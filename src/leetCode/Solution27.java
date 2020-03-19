@@ -18,7 +18,7 @@ public class Solution27 {
         int i = solution27.removeElement(arr, 2);
         System.out.println(i);
         for (int j = 0; j < arr.length; j++) {
-            System.out.println(arr[i]);
+            System.out.println(arr[j]);
         }
     }
 }
