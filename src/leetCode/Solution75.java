@@ -19,9 +19,30 @@ public class Solution75 {
         for (int i = 0; i < data[2]; i++) {
             nums[index++] = 2;
         }
+    }
 
+    public void sortColors1(int[] nums) {
+        int zero = -1;
+        int two = nums.length;
+        for (int i = 0; i < two; ) {
+            if (nums[i] == 1) {
+                i++;
+            } else if (nums[i] == 2) {
+                swap(nums, i, --two);
+            } else {
+                assert nums[i] == 0;
+                swap(nums, ++zero, i++);
+            }
+        }
 
     }
+
+    private void swap(int[] nums, int i, int j) {
+        int t = nums[i];
+        nums[i] = nums[j];
+        nums[j] = t;
+    }
+
 
     public static void main(String[] args) {
 
