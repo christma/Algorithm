@@ -41,7 +41,7 @@ public class Solution167 {
 
         int l = 0;
         int r = numbers.length - 1;
-        while (l <= r) {
+        while (l < r) {
             if (numbers[l] + numbers[r] == target) {
                 int[] res = {l + 1, r + 1};
                 return res;
