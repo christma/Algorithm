@@ -43,7 +43,7 @@ public class Solution103 {
                 }
             } else {
                 ans.add(temp);
-                temp = new LinkedList<>();
+                temp.clear();
                 if (!queue.isEmpty()) {
                     queue.addLast(null);
                 }
