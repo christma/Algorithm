@@ -5,8 +5,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+
 public class Solution103 {
-    public class TreeNode {
+    static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
@@ -50,5 +51,20 @@ public class Solution103 {
             }
         }
         return ans;
+    }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(3);
+        TreeNode a = new TreeNode(9);
+        TreeNode b = new TreeNode(20);
+        TreeNode c = new TreeNode(15);
+        TreeNode d = new TreeNode(7);
+
+        root.left = a;
+        root.right = b;
+        b.left = c;
+        b.right = d;
+
+        new Solution103().zigzagLevelOrder(root);
     }
 }
