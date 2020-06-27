@@ -29,15 +29,18 @@ public class BST2<E extends Comparable> {
     }
 
     public void Add(E e) {
-        if (root == null) {
-            root = new Node(e);
-            size++;
-        } else {
-            add(root, e);
-        }
+        // method 1
+//        if (root == null) {
+//            root = new Node(e);
+//            size++;
+//        } else {
+//            add(root, e);
+//        }
+        add(root, e);
     }
 
-    private void add(Node node, E e) {
+    // method 1
+    private void add1(Node node, E e) {
         if (node.e.equals(e)) {
             return;
         } else if (node.e.compareTo(e) < 0 && node.left == null) {
@@ -50,10 +53,23 @@ public class BST2<E extends Comparable> {
             return;
         }
         if (node.e.compareTo(e) < 0) {
-            add(node.left, e);
+            add1(node.left, e);
         } else {
-            add(node.right, e);
+            add1(node.right, e);
         }
+    }
 
+    // method 2
+    private Node add(Node node, E e) {
+        if (node == null) {
+            size++;
+            return new Node(e);
+        }
+        if (node.e.compareTo(e) < 0) {
+            node.left = add(node.left, e);
+        } else if (node.e.compareTo(e) > 0) {
+            node.right = add(node.right, e);
+        }
+        return node;
     }
 }
