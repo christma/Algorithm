@@ -5,7 +5,7 @@ public class BST2<E extends Comparable> {
         public E e;
         public Node left, right;
 
-        public void Node(E e) {
+        public Node(E e) {
             this.e = e;
             this.right = null;
             this.left = null;
@@ -28,4 +28,32 @@ public class BST2<E extends Comparable> {
         return size == 0;
     }
 
+    public void Add(E e) {
+        if (root == null) {
+            root = new Node(e);
+            size++;
+        } else {
+            add(root, e);
+        }
+    }
+
+    private void add(Node node, E e) {
+        if (node.e.equals(e)) {
+            return;
+        } else if (node.e.compareTo(e) < 0 && node.left == null) {
+            node.left = new Node(e);
+            size++;
+            return;
+        } else if (node.e.compareTo(e) > 0 && node.right == null) {
+            node.right = new Node(e);
+            size++;
+            return;
+        }
+        if (node.e.compareTo(e) < 0) {
+            add(node.left, e);
+        } else {
+            add(node.right, e);
+        }
+
+    }
 }
