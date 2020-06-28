@@ -72,4 +72,38 @@ public class BST2<E extends Comparable> {
         }
         return node;
     }
+
+    public boolean contain(E e) {
+        return contain(root, e);
+    }
+
+    private boolean contain(Node node, E e) {
+
+        if (node == null) {
+            return false;
+        }
+        if (e.compareTo(node.e) == 0) {
+            return true;
+        } else if (e.compareTo(node.e) > 0) {
+            return contain(node.right, e);
+        } else {
+            return contain(node.left, e);
+        }
+    }
+
+
+    public void preOrder() {
+        preOrder(root);
+    }
+
+    private void preOrder(Node node) {
+        if (node == null) {
+            return;
+        }
+        System.out.println(node.e);
+        preOrder(node.left);
+        preOrder(node.right);
+    }
+
+
 }
