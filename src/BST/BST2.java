@@ -1,5 +1,10 @@
 package BST;
 
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 public class BST2<E extends Comparable> {
     private class Node {
         public E e;
@@ -28,7 +33,7 @@ public class BST2<E extends Comparable> {
         return size == 0;
     }
 
-    public void Add(E e) {
+    public void add(E e) {
         // method 1
 //        if (root == null) {
 //            root = new Node(e);
@@ -36,7 +41,7 @@ public class BST2<E extends Comparable> {
 //        } else {
 //            add(root, e);
 //        }
-        add(root, e);
+        root = add(root, e);
     }
 
     // method 1
@@ -65,9 +70,9 @@ public class BST2<E extends Comparable> {
             size++;
             return new Node(e);
         }
-        if (node.e.compareTo(e) < 0) {
+        if (e.compareTo(node.e) < 0) {
             node.left = add(node.left, e);
-        } else if (node.e.compareTo(e) > 0) {
+        } else if (e.compareTo(node.e) > 0) {
             node.right = add(node.right, e);
         }
         return node;
@@ -103,6 +108,30 @@ public class BST2<E extends Comparable> {
         System.out.println(node.e);
         preOrder(node.left);
         preOrder(node.right);
+    }
+
+    public List<E> preOrderNo(){
+        return preOrderNo(root);
+    }
+
+    public List<E> preOrderNo(Node root) {
+        List<E> ans = new ArrayList<>();
+        if (root == null) {
+            return ans;
+        }
+        LinkedList<Node> stack = new LinkedList<>();
+        stack.add(root);
+        while (!stack.isEmpty()) {
+            Node node = stack.pollLast();
+            ans.add(node.e);
+            if (node.right != null) {
+                stack.addLast(node.right);
+            }
+            if (node.left != null) {
+                stack.addLast(node.left);
+            }
+        }
+        return ans;
     }
 
 
