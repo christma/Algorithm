@@ -13,6 +13,14 @@ public class Solution101 {
 
     public boolean isSymmetric(TreeNode root) {
         return check(root, root);
+
+
+     /*  1
+        / \
+       2   2
+        \   \
+        3    3
+       */
     }
 
     private boolean check(TreeNode p, TreeNode q) {
@@ -25,4 +33,5 @@ public class Solution101 {
         }
         return p.val == q.val && check(p.right, q.left) && check(p.left, q.right);
     }
+
 }
