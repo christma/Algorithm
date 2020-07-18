@@ -23,6 +23,7 @@ public class  Solution101 {
        */
     }
 
+
     private boolean check(TreeNode p, TreeNode q) {
 
         if (p == null && q == null) {
